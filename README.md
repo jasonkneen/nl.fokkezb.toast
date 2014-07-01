@@ -4,7 +4,7 @@ Another [Alloy](http://appcelerator.com/alloy) [Widget](http://docs.appcelerator
 
 ## Screencasts
 
-![iOS](https://github.com/FokkeZB/nl.fokkezb.toast/blob/master/screencasts/ios.png?raw=true) ![Android](https://github.com/FokkeZB/nl.fokkezb.toast/blob/master/screencasts/android.png?raw=true)
+![iOS](https://github.com/FokkeZB/nl.fokkezb.toast/blob/master/screencasts/ios.gif?raw=true) ![Android](https://github.com/FokkeZB/nl.fokkezb.toast/blob/master/screencasts/android.gif?raw=true)
 
 ## Get it [![gitTio](http://gitt.io/badge.png)](http://gitt.io/component/nl.fokkezb.toast)
 
