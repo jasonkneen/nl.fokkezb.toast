@@ -1,0 +1,6 @@
+<Alloy>
+  <Window id="window" class="nlFokkezbToast_window" platform="ios" onOpen="onWindowOpen">
+    <Label id="label" class="nlFokkezbToast_label" />
+  </Window>
+  <Notification id="notification" class="nlFokkezbToast_notification" platform="android" />
+</Alloy>

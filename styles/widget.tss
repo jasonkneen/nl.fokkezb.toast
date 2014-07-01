@@ -1,0 +1,29 @@
+".nlFokkezbToast_window": {
+
+  width: '280dp',
+  height: '30dp',
+  bottom: '-30dp',
+
+  backgroundColor: '#000',
+  borderRadius: '5dp'
+}
+
+".nlFokkezbToast_enterAnimation": {
+  bottom: '30dp'
+}
+
+".nlFokkezbToast_exitAnimation": {
+  bottom: '-30dp'
+}
+
+".nlFokkezbToast_label": {
+  left: '10dp',
+  right: '10dp',
+
+  textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+  color: '#fff',
+  font: {
+    fontSize: 13,
+    fontWeight: 'bold'
+  }
+}
