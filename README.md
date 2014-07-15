@@ -28,31 +28,51 @@ Or download a [release](https://github.com/FokkeZB/nl.fokkezb.toast/releases), e
 
 #### alloy.js
 
-	Alloy.Globals.toast = Alloy.createWidget('nl.fokkezb.toast', 'global', {
+	var toast = Alloy.createWidget('nl.fokkezb.toast', 'global', {
 		// defaults
-	}).show;
+	});
+	
+	Alloy.Globals.toast = toast.show; 	// same as toast.info
+	Alloy.Globals.error = toast.error;	// applies the 'error' theme
+	
 	
 ##### index.js
 
 	Alloy.Globals.toast('hello world');
+	Alloy.Globals.error('hello world');
 	
 ### Local instances
 
 #### index.js
 
-	Alloy.createWidget('toast').show('hello world');
+	Alloy.createWidget('toast').show('hello world', {
+	
+		theme: 'error',		// adds .nlFokkezbToast_[view|label]_error class
+		persistent: true	// stay open until clicked on
+	
+	});
+	
+### Modal windows
+If a modal window is open, the toast will not be visible. When a modal window is open, pass a reference to the window via the `view` property to have the toast added to the window instead of creating its own:
+
+	Alloy.Globals.error('bye world', {
+		view: $.win
+	});
+	
+**NOTE:** The view you refer needs to have a composite layout (the default).
 	
 ## Style it
 
 Use the [classes](styles/widget.tss) in your `themes/yourTheme/widgets/nl.fokkezb.toast/styles/widget.tss` (Alloy 1.4.0+) or `styles/app.tss` to style the views and also set the entry and exit properties to animate on iOS.
 
+### Themes
+The `theme` property will simple prefixed with `nlFokkezbToast_view` and `nlFokkezbToast_label` after which these classes will be added to the view and label. Override the classes to change their styles.
+
 ## Todo
 Feel free to send PRs for these or other features:
 
-* Support built-in and custom levels that can be themed (info, error..).
 * Support queueing instead of overlaying multiple messages.
 * Support stacking instead of overlaying multiple messages.
-* Support tap-to-close instead of only auto-close.
 
 ## Alternatives
 Other widgets and why they didn't work for me:

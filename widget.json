@@ -3,7 +3,7 @@
 	"name": "Alloy Toast Widget",
 	"description" : "Another Alloy widget for cross-platform Android toast-like notifications.",
 	"author": "Fokke Zandbergen",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"copyright":"Copyright (c) 2014 Fokke Zandbergen",
 	"license":"MIT",
 	"min-alloy-version": "1.3",

@@ -1,3 +1,8 @@
+$.show = show;
+$.hide = hide;
+
+var parent;
+
 (function constructor(args) {
 
   if (OS_ANDROID) {
@@ -22,33 +27,62 @@
 
   } else {
 
-    $.label.text = args.message;
+    var viewClasses = ['nlFokkezbToast_view'];
+    var labelClasses = ['nlFokkezbToast_label'];
 
-    $.window.open();
+    if (args.theme) {
+      viewClasses.push('nlFokkezbToast_view_' + args.theme);
+      labelClasses.push('nlFokkezbToast_label_' + args.theme);
+    }
+
+    $.resetClass($.view, viewClasses);
+    $.resetClass($.label, labelClasses, {
+      text: args.message
+    });
+
+    parent = args.view || $.window;
+    parent.add($.view);
+
+    if (!args.view) {
+      $.window.open();
+    }
+
+    show();
 
     // set a timeout to hide and close
-    setTimeout(function() {
+    if (!args.persistent) {
+      setTimeout(function() {
 
-      // exitAnimation defined in TSS
-      $.window.animate(_.omit($.createStyle({
-        classes: ['nlFokkezbToast_exitAnimation']
+        hide();
 
-      }), 'classes'), function(e) {
-
-        $.window.close();
-
-      });
-
-    }, args.duration || 3000);
+      }, args.duration || 3000);
+    }
   }
 
 })(arguments[0] || {});
 
-function onWindowOpen(e) {
+function show(e) {
 
   // enterAnimation defined in TSS
-  $.window.animate(_.omit($.createStyle({
+  $.view.animate(_.omit($.createStyle({
     classes: ['nlFokkezbToast_enterAnimation']
   }), 'classes'));
 
+}
+
+function hide(e) {
+
+  // exitAnimation defined in TSS
+  $.view.animate(_.omit($.createStyle({
+    classes: ['nlFokkezbToast_exitAnimation']
+
+  }), 'classes'), function(e) {
+
+    if (parent === $.window) {
+      $.window.close();
+    }
+
+    parent.remove($.view);
+
+  });
 }
