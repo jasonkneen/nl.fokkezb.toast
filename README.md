@@ -45,8 +45,8 @@ Or download a [release](https://github.com/FokkeZB/nl.fokkezb.toast/releases), e
 
 #### index.js
 
-	Alloy.createWidget('toast').show('hello world', {
-	
+	Alloy.createWidget('nl.fokkezb.toast', {
+	    message: 'hello world',
 		theme: 'error',		// adds .nlFokkezbToast_[view|label]_error class
 		persistent: true	// stay open until clicked on
 	
