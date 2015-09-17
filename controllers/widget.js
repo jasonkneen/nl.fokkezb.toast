@@ -14,7 +14,7 @@ var parent;
     if (args.duration) {
 
       // convert ms to constant
-      if (args.duration !== Ti.UI.NOTIFICATION_DURATION_LONG && args.duration !== Ti.UI.NOTIFICATION_DURATION_LONG) {
+      if (args.duration !== Ti.UI.NOTIFICATION_DURATION_LONG && args.duration !== Ti.UI.NOTIFICATION_DURATION_SHORT) {
         properties.duration = (args.duration > 2000) ? Ti.UI.NOTIFICATION_DURATION_LONG : Ti.UI.NOTIFICATION_DURATION_SHORT;
       } else {
         properties.duration = args.duration;
